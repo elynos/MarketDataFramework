@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarketDataFramework</RootNamespace>
+    <AssemblyName>MarketDataFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Core\Interfaces\IMarketDataFeed.cs" />
+    <Compile Include="Core\Interfaces\IBasketEngine.cs" />
+    <Compile Include="Core\Interfaces\IExtrapolationStrategy.cs" />
+    <Compile Include="Core\Interfaces\IStochasticClock.cs" />
+    <Compile Include="Core\Interfaces\IMarketDataDistributor.cs" />
+    <Compile Include="Core\Models\Instrument.cs" />
+    <Compile Include="Core\Models\MarketDataTick.cs" />
+    <Compile Include="Core\Models\BasketDefinition.cs" />
+    <Compile Include="Core\Models\BasketValuation.cs" />
+    <Compile Include="Core\Models\PopulationWindow.cs" />
+    <Compile Include="Core\Models\MarketDataSnapshot.cs" />
+    <Compile Include="StochasticClock\StochasticClockService.cs" />
+    <Compile Include="StochasticClock\MarketSession.cs" />
+    <Compile Include="StochasticClock\PopulationWindowBuilder.cs" />
+    <Compile Include="BasketEngine\BasketValuationEngine.cs" />
+    <Compile Include="BasketEngine\WeightedAverageCalculator.cs" />
+    <Compile Include="BasketEngine\PopulationAggregator.cs" />
+    <Compile Include="Extrapolation\LastKnownValueStrategy.cs" />
+    <Compile Include="Extrapolation\LinearRegressionStrategy.cs" />
+    <Compile Include="Extrapolation\ExtrapolationContext.cs" />
+    <Compile Include="Distribution\MarketDataDistributor.cs" />
+    <Compile Include="Distribution\SubscriberRegistry.cs" />
+    <Compile Include="Distribution\MarketDataPublisher.cs" />
+    <Compile Include="Infrastructure\Feeds\BloombergFeedAdapter.cs" />
+    <Compile Include="Infrastructure\Feeds\ReutersFeedAdapter.cs" />
+    <Compile Include="Infrastructure\Feeds\FeedAggregator.cs" />
+    <Compile Include="Infrastructure\Persistence\DmdsRepository.cs" />
+    <Compile Include="Infrastructure\Persistence\OracleRepository.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

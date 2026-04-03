@@ -1,0 +1,49 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# NCrunch
+*.ncrunch*
+_NCrunch_*/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# Rider
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# DMDS data (runtime output — do not commit)
+DMDS/
+
+# Local config overrides
+*.local.config
